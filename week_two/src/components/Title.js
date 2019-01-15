@@ -5,7 +5,7 @@ export class Title extends Component {
   render() {
     return (
       <div>
-        <h1>My First Gatsby App.</h1>
+        <h1>Welcome to the Donation page.</h1>
       </div>
     )
   }

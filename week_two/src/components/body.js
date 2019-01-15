@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+// import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
@@ -23,31 +23,44 @@ const styles = theme => ({
   },
 });
 
-const currencies = [
-  {
-    value: 'USD',
-    label: '$',
-  },
-  {
-    value: 'EUR',
-    label: '€',
-  },
-  {
-    value: 'BTC',
-    label: '฿',
-  },
-  {
-    value: 'JPY',
-    label: '¥',
-  },
-];
+const donation = [
+    {
+      value: 100,
+      label: 'Super Donation ($100)',
+    },
+    {
+      value: 200,
+      label: 'Mega Donation ($200) ',
+    },
+    {
+      value: 500,
+      label: 'Supreme Donation ($500)',
+    },
+    {
+      value: 1000,
+      label: 'Omega Donation ($1000)',
+    },
+    {
+      value: 5000,
+      label: 'Ultra Donation ($5000)',
+    },
+    {
+      value: 10000,
+      label: 'Baller Donation ($10000)',
+    },
+  ];
 
 class TextFields extends React.Component {
   state = {
-    name: 'Cat in the Hat',
+    firstname: '',
+    lastname: '',
+    address:'',
+    city:'',
+    state:'',
+    zip:'',
+    email:'',
     age: '',
-    multiline: 'Controlled',
-    currency: 'EUR',
+    donation: '',
   };
 
   handleChange = name => event => {
@@ -62,189 +75,94 @@ class TextFields extends React.Component {
     return (
       <form className={classes.container} noValidate autoComplete="off">
         <TextField
-          id="standard-name"
-          label="Name"
+          required
+          id="first-name"
+          label="First Name"
           className={classes.textField}
           value={this.state.name}
           onChange={this.handleChange('name')}
           margin="normal"
         />
         <TextField
-          id="standard-uncontrolled"
-          label="Uncontrolled"
-          defaultValue="foo"
+          required
+          id="last-name"
+          label="Last Name"
           className={classes.textField}
+          value={this.state.name}
+          onChange={this.handleChange('name')}
           margin="normal"
         />
         <TextField
           required
-          id="standard-required"
-          label="Required"
-          defaultValue="Hello World"
+          id="city-name"
+          label="City"
           className={classes.textField}
+          value={this.state.name}
+          onChange={this.handleChange('name')}
           margin="normal"
         />
         <TextField
-          error
-          id="standard-error"
-          label="Error"
-          defaultValue="Hello World"
+          required
+          id="first-name"
+          label="State"
           className={classes.textField}
+          value={this.state.name}
+          onChange={this.handleChange('name')}
           margin="normal"
         />
         <TextField
-          disabled
-          id="standard-disabled"
-          label="Disabled"
-          defaultValue="Hello World"
+        required
+          id="first-name"
+          label="E-mail"
           className={classes.textField}
+          value={this.state.name}
+          onChange={this.handleChange('name')}
           margin="normal"
         />
-        <TextField
-          id="standard-password-input"
-          label="Password"
+           <TextField
+           required
+          id="Age"
+          label="Age"
           className={classes.textField}
-          type="password"
-          autoComplete="current-password"
+          value={this.state.name}
+          onChange={this.handleChange('name')}
           margin="normal"
         />
+        
         <TextField
-          id="standard-read-only-input"
-          label="Read Only"
-          defaultValue="Hello World"
-          className={classes.textField}
-          margin="normal"
-          InputProps={{
-            readOnly: true,
-          }}
-        />
-        <TextField
-          id="standard-dense"
-          label="Dense"
-          className={classNames(classes.textField, classes.dense)}
-          margin="dense"
-        />
-        <TextField
-          id="standard-multiline-flexible"
-          label="Multiline"
-          multiline
-          rowsMax="4"
-          value={this.state.multiline}
-          onChange={this.handleChange('multiline')}
-          className={classes.textField}
-          margin="normal"
-        />
-        <TextField
-          id="standard-multiline-static"
-          label="Multiline"
-          multiline
-          rows="4"
-          defaultValue="Default Value"
-          className={classes.textField}
-          margin="normal"
-        />
-        <TextField
-          id="standard-helperText"
-          label="Helper text"
-          defaultValue="Default Value"
-          className={classes.textField}
-          helperText="Some important text"
-          margin="normal"
-        />
-        <TextField
-          id="standard-with-placeholder"
-          label="With placeholder"
-          placeholder="Placeholder"
-          className={classes.textField}
-          margin="normal"
-        />
-        <TextField
-          id="standard-textarea"
-          label="With placeholder multiline"
-          placeholder="Placeholder"
-          multiline
-          className={classes.textField}
-          margin="normal"
-        />
-        <TextField
-          id="standard-number"
-          label="Number"
-          value={this.state.age}
-          onChange={this.handleChange('age')}
-          type="number"
-          className={classes.textField}
-          InputLabelProps={{
-            shrink: true,
-          }}
-          margin="normal"
-        />
-        <TextField
-          id="standard-search"
-          label="Search field"
-          type="search"
-          className={classes.textField}
-          margin="normal"
-        />
-        <TextField
-          id="standard-select-currency"
+        required
+          id="select-donation"
           select
-          label="Select"
+          label="Donate"
           className={classes.textField}
-          value={this.state.currency}
-          onChange={this.handleChange('currency')}
+          value={this.state.donation}
+          onChange={this.handleChange('donation')}
           SelectProps={{
             MenuProps: {
               className: classes.menu,
             },
           }}
-          helperText="Please select your currency"
+          helperText="Select your donation level!"
           margin="normal"
+          item xs={6}
         >
-          {currencies.map(option => (
+          {donation.map(option => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>
           ))}
         </TextField>
         <TextField
-          id="standard-select-currency-native"
-          select
-          label="Native select"
-          className={classes.textField}
-          value={this.state.currency}
-          onChange={this.handleChange('currency')}
-          SelectProps={{
-            native: true,
-            MenuProps: {
-              className: classes.menu,
-            },
-          }}
-          helperText="Please select your currency"
-          margin="normal"
-        >
-          {currencies.map(option => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </TextField>
-        <TextField
-          id="standard-full-width"
-          label="Label"
+          id="Special-words"
+          label="Special Note"
           style={{ margin: 8 }}
-          placeholder="Placeholder"
-          helperText="Full width!"
+          placeholder=""
+          helperText="Say what is in your heart! (optionl)"
           fullWidth
           margin="normal"
           InputLabelProps={{
             shrink: true,
           }}
-        />
-        <TextField
-          id="standard-bare"
-          className={classes.textField}
-          defaultValue="Bare"
-          margin="normal"
         />
       </form>
     );

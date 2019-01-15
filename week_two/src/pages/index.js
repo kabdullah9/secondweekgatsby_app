@@ -1,13 +1,15 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import {Elements, StripeProvider} from 'react-stripe-elements';
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import Button from '../components/button'
+import Stripe from '../components/stripe'
 import Title from '../components/Title'
 import Body from '../components/Body'
-import Grid from '../components/Grid'
+// import Grid from '../components/Grid'
 import Footer from '../components/footer'
+
 
 
 
@@ -20,8 +22,13 @@ const IndexPage = () => (
     <Title/>
     <div style={{ marginBottom: `1.45rem` }}>    
     <Body/>
-    <Button/>
-    <Grid/>
+    <StripeProvider apiKey="pk_test_fPUGxuUBO7BTyNHoff6sZA4p">
+        <div className="example">
+          <Elements>
+            <Stripe/>
+          </Elements>
+        </div>
+      </StripeProvider>
     </div>
     <Link to="/page-2/">Go to page 2</Link>
     <Footer/>
