@@ -1,0 +1,11 @@
+header{
+    background-image: url('https://images.pexels.com/photos/1131407/pexels-photo-1131407.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500') ;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-attachment: fixed;
+    text-align: center;
+    height: 100px;
+    padding: 10px;
+    margin: 10px;
+    background-color: black
+}
