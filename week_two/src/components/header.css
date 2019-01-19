@@ -1,5 +1,5 @@
 header{
-    background-image: url('https://images.pexels.com/photos/1131407/pexels-photo-1131407.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500') ;
+    background-image: url('https://images.pexels.com/photos/1131407/pexels-photo-1131407.jpeg?auto=compress&cs=tinysrgb&dpr=1&') ;
     background-repeat: no-repeat;
     background-position: center top;
     background-attachment: fixed;
@@ -7,5 +7,16 @@ header{
     height: 100px;
     padding: 10px;
     margin: 10px;
-    background-color: black
+    background-color: black;
+    border-style: groove;
+    border-color:royalblue;
+    border-width: 7px;
+    border-radius: 25px
 }
+
+.icon{
+    float: right;
+    margin: 20px;
+}
+
+ 

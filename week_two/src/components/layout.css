@@ -613,12 +613,16 @@ pre tt:before,
 pre tt:after {
   content: '';
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 768px) {
   html {
     font-size: 100%;
   }
 }
-
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 100%;
+  }
+}
 .site {
   display: flex;
   min-height: 100vh;
@@ -628,3 +632,26 @@ pre tt:after {
 .site-content {
   flex-grow: 1;
 }
+.background {
+ opacity: 1;
+}
+/* You could use :after - it doesn't really matter */
+/* .background:after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 1;
+  background-image: url('http://www.sikhmuseum.com/nishan/images/Boy_Nishan1.jpg');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+} */

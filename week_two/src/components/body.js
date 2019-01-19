@@ -1,9 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 // import classNames from 'classnames';
+
 import { withStyles } from '@material-ui/core/styles'
 import MenuItem from '@material-ui/core/MenuItem'
 import TextField from '@material-ui/core/TextField'
+import FormControl from '@material-ui/core/FormControl'
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import MaskedInput from 'react-text-mask'
+
+import Axios from 'axios';
 
 const styles = theme => ({
   container: {
@@ -21,7 +28,27 @@ const styles = theme => ({
   menu: {
     width: 200,
   },
-})
+});
+
+function TextMaskCustom(props) {
+    const { inputRef, ...other } = props;
+  
+    return (
+      <MaskedInput
+        {...other}
+        ref={ref => {
+          inputRef(ref ? ref.inputElement : null);
+        }}
+        mask={['(', /\d/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
+        placeholderChar={'\u2000'}
+        showMask
+      />
+    );
+  }
+  
+  TextMaskCustom.propTypes = {
+    inputRef: PropTypes.func.isRequired,
+  };
 
 const donation = [
   {
@@ -52,204 +79,204 @@ const donation = [
 
 const state = [
   {
-    value: 'Alabama - AL',
+    value: 'USA_AL',
     label: 'AL',
   },
 
   {
-    value: 'Alaska - AK',
+    value: 'USA_AK',
     label: 'AK',
   },
   {
-    value: 'Arizona - AZ',
+    value: 'USA_AZ',
     label: 'AZ',
   },
   {
-    value: 'Arkansas - AR',
+    value: 'USA_AR',
     label: 'AR',
   },
   {
-    value: 'California - CA',
+    value: 'USA_CA',
     label: 'CA',
   },
   {
-    value: 'Colorado - CO',
+    value: 'USA_CO',
     label: 'CO',
   },
   {
-    value: 'Connecticut - CT',
+    value: 'USA_CT',
     label: 'CT',
   },
   {
-    value: 'Delaware - DE',
+    value: 'USA_DE',
     label: 'DE',
   },
   {
-    value: 'Florida - FL',
+    value: 'USA_FL',
     label: 'FL',
   },
   {
-    value: 'Georgia - GA',
+    value: 'USA_GA',
     label: 'GA',
   },
   {
-    value: 'Hawaii - HI',
+    value: 'USA_HI',
     label: 'HI',
   },
   {
-    value: 'Idaho - ID',
+    value: 'USA_ID',
     label: 'ID',
   },
   {
-    value: 'Illinois - IL',
+    value: 'USA_IL',
     label: 'IL',
   },
   {
-    value: 'Indiana - IN',
+    value: 'USA_IN',
     label: 'IN',
   },
   {
-    value: 'Iowa - IA',
+    value: 'USA_IA',
     label: 'IA',
   },
   {
-    value: 'Kansas - KS',
+    value: 'USA_KS',
     label: 'KS',
   },
   {
-    value: 'Kentucky - KY',
+    value: 'USA_KY',
     label: 'KY',
   },
   {
-    value: 'Louisiana - LA',
+    value: 'USA_LA',
     label: 'LA',
   },
   {
-    value: 'Maine - ME',
+    value: 'USA_ME',
     label: 'ME',
   },
   {
-    value: 'Maryland - MD',
+    value: 'USA_MD',
     label: 'MD',
   },
   {
-    value: 'Massachusetts - MA',
+    value: 'USA_MA',
     label: 'MA',
   },
   {
-    value: 'Michigan - MI',
+    value: 'USA_MI',
     label: 'MI',
   },
   {
-    value: 'Minnesota - MN',
+    value: 'USA_MN',
     label: 'MN',
   },
   {
-    value: 'Mississippi - MS',
+    value: 'USA_MS',
     label: 'MS',
   },
   {
-    value: 'Missouri - MO',
+    value: 'USA_MO',
     label: 'MO',
   },
   {
-    value: 'Montana - MT',
+    value: 'USA_MT',
     label: 'MT',
   },
   {
-    value: 'Nebraska - NE',
+    value: 'USA_NE',
     label: 'NE',
   },
   {
-    value: 'Nevada - NV',
+    value: 'USA_NV',
     label: 'NV',
   },
   {
-    value: 'New Hampshire - NH',
+    value: 'USA_NH',
     label: 'NH',
   },
   {
-    value: 'New Jersey - NJ',
+    value: 'USA_NJ',
     label: 'NJ',
   },
   {
-    value: 'New Mexico - NM',
+    value: 'USA_NM',
     label: 'NM',
   },
   {
-    value: 'New York - NY',
+    value: 'USA_NY',
     label: 'NY',
   },
   {
-    value: 'North Carolina - NC',
+    value: 'USA_NC',
     label: 'NC',
   },
   {
-    value: 'North Dakota - ND',
+    value: 'USA_ND',
     label: 'ND',
   },
   {
-    value: 'Ohio - OH',
+    value: 'USA_OH',
     label: 'OH',
   },
   {
-    value: 'Oklahoma - OK',
+    value: 'USA_OK',
     label: 'OK',
   },
   {
-    value: 'Oregon - OR',
+    value: 'USA_OR',
     label: 'OR',
   },
   {
-    value: 'Pennsylvania - PA',
+    value: 'USA_PA',
     label: 'PA',
   },
   {
-    value: 'Rhode Island - RI',
+    value: 'USA_RI',
     label: 'RI',
   },
   {
-    value: 'South Carolina - SC',
+    value: 'USA_SC',
     label: 'SC',
   },
   {
-    value: 'South Dakota - SD',
+    value: 'USA_SD',
     label: 'SD',
   },
   {
-    value: 'Tennessee - TN',
+    value: 'USA_TN',
     label: 'TN',
   },
   {
-    value: 'Texas - TX',
+    value: 'USA_TX',
     label: 'TX',
   },
   {
-    value: 'Utah - UT',
+    value: 'USA_UT',
     label: 'UT',
   },
   {
-    value: 'Vermont - VT',
+    value: 'USA_VT',
     label: 'VT',
   },
   {
-    value: 'Virginia - VA',
+    value: 'USA_VA',
     label: 'VA',
   },
   {
-    value: 'Washington - WA',
+    value: 'USA_WA',
     label: 'WA',
   },
   {
-    value: 'West Virginia - WV',
+    value: 'USA_WV',
     label: 'WV',
   },
   {
-    value: 'Wisconsin - WI',
+    value: 'USA_WI',
     label: 'WI',
   },
   {
-    value: 'Wyoming - WY',
+    value: 'USA_WY',
     label: 'WY',
   },
 ]
@@ -264,22 +291,56 @@ class TextFields extends React.Component {
     zip: '',
     email: '',
     age: '',
+    number:'(   )    -    ',
     donation: '',
     customdonation: '',
     note: '',
   }
 
+  
+
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
-    })
+    });
   }
+
+  handleSubmit = event => {
+      event.preventDefault();
+
+
+      const doner ={
+        firstName: this.state.firstname ,
+        lastName: this.state.lastname ,
+        address1: this.state.address ,
+        city: this.state.city ,
+        postalCode: this.state.zip ,
+        stateProvinceGeoId: this.state.state ,
+        // email: this.state.email,
+        contactNumber: this.state.number,
+        // donation: this.state.donation,
+        // customDonation: this.state.customdonation,
+        // note: this.state.note,
+  };
+
+  Axios.post(`http://localhost:8080/apps/CreditCardApp/ApplicationForm/createCCOSApplication` , doner)
+    .then(res =>{
+        console.log(res)
+        console.log(res.data);
+    })
+    .catch(error =>{
+        console.log(error.res)
+    })
+
+}
+
+  
 
   render() {
     const { classes } = this.props
 
     return (
-      <form className={classes.container} noValidate autoComplete="off">
+      <form onSubmit={this.handleSubmit} className={classes.container} noValidate autoComplete="off">
         <TextField
           required
           id="first-name"
@@ -298,6 +359,15 @@ class TextFields extends React.Component {
           onChange={this.handleChange('lastname')}
           margin="normal"
         />
+           <TextField
+          required
+          id="address"
+          label="Address"
+          className={classes.textField}
+          value={this.state.address}
+          onChange={this.handleChange('address')}
+          margin="normal"
+        />
         <TextField
           required
           id="city-name"
@@ -307,10 +377,19 @@ class TextFields extends React.Component {
           onChange={this.handleChange('city')}
           margin="normal"
         />
+          <TextField
+            required
+            id="zip"
+            label="Zip"
+            className={classes.textField}
+            value={this.state.zip}
+            onChange={this.handleChange('zip')}
+            margin="normal"
+          />
         <TextField
           required
           select
-          id="first-name"
+          id="state"
           label="State"
           className={classes.textField}
           value={this.state.state}
@@ -330,23 +409,28 @@ class TextFields extends React.Component {
         </TextField>
         <TextField
           required
-          id="first-name"
+          id="email"
           label="E-mail"
+          type="email"
+          name="email"
+          autoComplete="email"
           className={classes.textField}
           value={this.state.email}
           onChange={this.handleChange('email')}
           margin="normal"
         />
-        <TextField
+        <div className={classes.container}>
+        <FormControl className={classes.FormControl}/>
+        <InputLabel htmlFor="Phone-number">Number</InputLabel>
+           <Input
           required
-          id="Age"
-          label="Age"
-          className={classes.textField}
-          value={this.state.age}
-          onChange={this.handleChange('age')}
-          margin="normal"
+          id="Phone-number"
+          value={this.state.number}
+          onChange={this.handleChange('number')}
+          inputComponent={TextMaskCustom}
         />
-
+        </div>
+        <FormControl/>
         <TextField
           required
           id="select-donation"
@@ -392,6 +476,7 @@ class TextFields extends React.Component {
             shrink: true,
           }}
         />
+        <button type='submit'>submit</button>
       </form>
     )
   }

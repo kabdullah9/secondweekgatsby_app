@@ -26,7 +26,26 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
+      
     },
+    {
+      resolve: `gatsby-plugin-stripe`,
+      options: {
+        asyn: true,
+      },
+    },
+    // ` gatsby-plugin-netlify-headers`,
+    // {
+    //   resolve: ` gatsby-plugin-netlify-headers`,
+    //   options: {
+    //     headers: {},                                  // option to add more headers. `Link` headers are transformed by the below criteria
+    //     allPageHeaders: [],                           // option to add headers for all pages. `Link` headers are transformed by the below criteria
+    //     mergeSecurityHeaders: true,                   // boolean to turn off the default security headers
+    //     mergeLinkHeaders: false,                      // boolean to turn off the default gatsby js headers (disabled by default, until gzip is fixed for server push)
+    //     mergeCachingHeaders: true,                    // boolean to turn off the default caching headers
+    //     transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
+    //   }
+    // }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',

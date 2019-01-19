@@ -8,7 +8,7 @@ import Stripe from '../components/stripe'
 import Title from '../components/Title'
 import Body from '../components/Body'
 // import Grid from '../components/Grid'
-import Footer from '../components/footer'
+import About from '../components/about'
 
 import './index.css'
 
@@ -18,15 +18,19 @@ import './index.css'
 
 
 
-const IndexPage = () => (
-  <Layout>
+const IndexPage = () => { 
+    return (
+    <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <Title/>
+    <div className="tpagebox"><Title/></div>
     <div style={{ marginBottom: `1.45rem` }}> 
-    <div class='pagebox'>  
+    <div className='pagebox'>
+    <About/>
+    </div>
+    <div className='pagebox'>  
     <Body/>
     </div>
-    <div class='pagebox'>
+    <div className='pagebox'>
     <StripeProvider apiKey="pk_test_fPUGxuUBO7BTyNHoff6sZA4p">
         <div className="example">
           <Elements>
@@ -37,8 +41,7 @@ const IndexPage = () => (
       </div>
     </div>
     <Link to="/page-2/">Go to page 2</Link>
-    <Footer/>
   </Layout>
-)
-
-export default IndexPage
+ );
+};
+ export default IndexPage
