@@ -1,0 +1,11 @@
+.thanks {
+    border: solid black ;
+    padding: 20px ;
+    margin-top: 20px;
+    border-style: groove;
+    border-color: coral;
+    border-width: 7px;
+    border-radius: 25px;
+    background-color: royalblue;
+    text-align: center;
+    }

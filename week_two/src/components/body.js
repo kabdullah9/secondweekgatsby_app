@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { navigate } from 'gatsby'
+import { Form } from 'formik';
 // import classNames from 'classnames';
 
 import { withStyles } from '@material-ui/core/styles'
@@ -8,6 +10,9 @@ import TextField from '@material-ui/core/TextField'
 import FormControl from '@material-ui/core/FormControl'
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 import MaskedInput from 'react-text-mask'
 
 import Axios from 'axios';
@@ -295,8 +300,14 @@ class TextFields extends React.Component {
     donation: '',
     customdonation: '',
     note: '',
+    checkedA: true,
   }
+  
 
+
+handleChange = name => event => {
+  this.setState({ [name]: event.target.checked });
+}
   
 
   handleChange = name => event => {
@@ -340,7 +351,7 @@ class TextFields extends React.Component {
     const { classes } = this.props
 
     return (
-      <form onSubmit={this.handleSubmit} className={classes.container} noValidate autoComplete="off">
+      <Form onSubmit={this.handleSubmit} className={classes.container} noValidate autoComplete="off">
         <TextField
           required
           id="first-name"
@@ -476,8 +487,20 @@ class TextFields extends React.Component {
             shrink: true,
           }}
         />
-        <button type='submit'>submit</button>
-      </form>
+        <FormGroup row>
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={this.state.checkedA}
+              onChange={this.handleChange('checkedA')}
+              value="checkedA"
+            />
+          }
+          label="Subscribe to our news letter?"
+        />
+        </FormGroup>
+        <button type='submit' onClick={ () => navigate('/thanks')} role="link" tabIndex="0" onKeyUp={this.handleKeyUp}>submit</button>
+      </Form>
     )
   }
 }

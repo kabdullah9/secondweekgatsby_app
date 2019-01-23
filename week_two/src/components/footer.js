@@ -7,7 +7,7 @@ export class Footer extends Component {
       <div>
         <footer id="sticky"> © {new Date().getFullYear()}, learn more about 
             {` `}
-            <a href="https://www.sikhnet.com/pages/who-are-sikhs-what-is-sikhism">sikhism</a></footer>      
+            <a href="https://www.sikhnet.com/pages/who-are-sikhs-what-is-sikhism">Sikhism</a></footer>      
         </div>
     )
   }

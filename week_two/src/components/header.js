@@ -16,7 +16,7 @@ export class  Header extends Component {
   <FontAwesomeIcon  icon="lock" color="green" size="2x"/>
   <FontAwesomeIcon icon="check" inverse transform="shrink-6" />
 </span></div>
-        <h1>Help A Nation Make  A donation!</h1>
+        <h1 style={{color: 'Royalblue', fontSize: '50px'}}>Help A Nation, Make A donation!</h1>
       </header>
     )
   }

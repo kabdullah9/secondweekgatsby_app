@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+// import { Link } from 'gatsby'
 import {Elements, StripeProvider} from 'react-stripe-elements';
 
 import Layout from '../components/layout'
@@ -9,6 +9,7 @@ import Title from '../components/Title'
 import Body from '../components/Body'
 // import Grid from '../components/Grid'
 import About from '../components/about'
+import Basic from '../components/formiktest'
 
 import './index.css'
 
@@ -29,6 +30,7 @@ const IndexPage = () => {
     </div>
     <div className='pagebox'>  
     <Body/>
+    <Basic/>
     </div>
     <div className='pagebox'>
     <StripeProvider apiKey="pk_test_fPUGxuUBO7BTyNHoff6sZA4p">
@@ -40,7 +42,6 @@ const IndexPage = () => {
       </StripeProvider>
       </div>
     </div>
-    <Link to="/page-2/">Go to page 2</Link>
   </Layout>
  );
 };
