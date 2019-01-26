@@ -4,7 +4,7 @@ import './Title.css'
 export class Title extends Component {
   render() {
     return (
-      <div>
+      <div className='titleDiv'>
         <h1>Welcome to the Donation page.</h1>
       </div>
     )

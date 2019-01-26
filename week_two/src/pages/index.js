@@ -10,6 +10,7 @@ import Body from '../components/Body'
 // import Grid from '../components/Grid'
 import About from '../components/about'
 import Basic from '../components/formiktest'
+import InputForm from '../components/InputForm'
 
 import './index.css'
 
@@ -30,7 +31,10 @@ const IndexPage = () => {
     </div>
     <div className='pagebox'>  
     <Body/>
-    <Basic/>
+
+      {/* <InputForm/> */}
+
+    {/* <Basic/> */}
     </div>
     <div className='pagebox'>
     <StripeProvider apiKey="pk_test_fPUGxuUBO7BTyNHoff6sZA4p">
